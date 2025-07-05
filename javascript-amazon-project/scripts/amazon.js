@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js';
+import { products } from '../data/products.js';
 
 // const product = [{
 //     image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
