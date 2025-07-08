@@ -1,14 +1,14 @@
 class Cart {
     cartItems;
-    localStorageKey;
+    #localStorageKey;
 
     constructor(localStorageKey) {
-        this.localStorageKey = localStorageKey;
-        this.loadFromStorage();
+        this.#localStorageKey = localStorageKey;
+        this.#loadFromStorage();
     }
 
-    loadFromStorage() {     //1. A function inside Object is known as Method.
-        this.cartItems = JSON.parse(localStorage.getItem(this.localStorageKey));  //this: when we change object name this helps to run our code as usual.
+    #loadFromStorage() {     //1. A function inside Object is known as Method.
+        this.cartItems = JSON.parse(localStorage.getItem(this.#localStorageKey));  //this: when we change object name this helps to run our code as usual.
 
         if (!this.cartItems) {
             this.cartItems = [{
@@ -24,7 +24,7 @@ class Cart {
     }
 
     saveToStorage() {
-        localStorage.setItem(this.localStorageKey, JSON.stringify(this.cartItems));
+        localStorage.setItem(this.#localStorageKey, JSON.stringify(this.cartItems));
     }
 
     addTOCart(productId) {
