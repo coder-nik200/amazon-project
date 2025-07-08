@@ -14,6 +14,11 @@ export function renderOrderSummary() {
 
     const matchingProduct = getProduct(productId);
 
+    if (!matchingProduct) {
+      // Skip this cart item if product not found
+      return;
+    }
+
     // console.log(matchinProduct);
 
     const deliveryOptionId = cartItem.deliveryOptionId;
@@ -28,7 +33,8 @@ export function renderOrderSummary() {
     const dateString = deliveryDate.format('ddd, MMM D');
 
     cartSummary += `
-     <div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingProduct.id}">
+         <div class="cart-item-container js-cart-item-container js-cart-item-container-${matchingProduct.id}">
+
           <div class="delivery-date">
             Delivery date: ${dateString}
           </div>
